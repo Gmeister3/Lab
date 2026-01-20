@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMI xmi.version="1.2" xmlns:UML="org.omg.xmi.namespace.UML" timestamp="2026-01-20T23:16:00">
+  <XMI.header>
+    <XMI.documentation>
+      <XMI.exporter>Manual Export</XMI.exporter>
+      <XMI.exporterVersion>1.0</XMI.exporterVersion>
+    </XMI.documentation>
+    <XMI.metamodel xmi.name="UML" xmi.version="1.4"/>
+  </XMI.header>
+  <XMI.content>
+    <UML:Model xmi.id="model1" name="SmartHomePro">
+      
+      <!-- Interface: IConnectable -->
+      <UML:Namespace.ownedElement>
+        <UML:Interface xmi.id="interface.IConnectable" name="IConnectable" visibility="public">
+          <UML:Classifier.feature>
+            <UML:Operation xmi.id="op.connectToWifi" name="connectToWifi" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="op.getSignalStrength" name="getSignalStrength" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="int"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Interface>
+        
+        <!-- Class: User -->
+        <UML:Class xmi.id="class.User" name="User" visibility="public">
+          <UML:Classifier.feature>
+            <UML:Attribute xmi.id="attr.User.username" name="username" visibility="private" type="String"/>
+            <UML:Attribute xmi.id="attr.User.email" name="email" visibility="private" type="String"/>
+            <UML:Operation xmi.id="op.User.login" name="login" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="op.User.logout" name="logout" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        
+        <!-- Class: House -->
+        <UML:Class xmi.id="class.House" name="House" visibility="public">
+          <UML:Classifier.feature>
+            <UML:Attribute xmi.id="attr.House.address" name="address" visibility="private" type="String"/>
+            <UML:Attribute xmi.id="attr.House.propertySize" name="propertySize" visibility="private" type="double"/>
+            <UML:Operation xmi.id="op.House.addRoom" name="addRoom" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter name="room" type="Room"/>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="op.House.removeRoom" name="removeRoom" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter name="room" type="Room"/>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        
+        <!-- Class: CentralHub -->
+        <UML:Class xmi.id="class.CentralHub" name="CentralHub" visibility="public">
+          <UML:Classifier.feature>
+            <UML:Attribute xmi.id="attr.CentralHub.hubId" name="hubId" visibility="private" type="String"/>
+            <UML:Attribute xmi.id="attr.CentralHub.systemVersion" name="systemVersion" visibility="private" type="String"/>
+            <UML:Operation xmi.id="op.CentralHub.manageOperations" name="manageOperations" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="op.CentralHub.processAutomation" name="processAutomation" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        
+        <!-- Class: ActivityLog -->
+        <UML:Class xmi.id="class.ActivityLog" name="ActivityLog" visibility="public">
+          <UML:Classifier.feature>
+            <UML:Attribute xmi.id="attr.ActivityLog.logId" name="logId" visibility="private" type="String"/>
+            <UML:Operation xmi.id="op.ActivityLog.addEntry" name="addEntry" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter name="entry" type="LogEntry"/>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="op.ActivityLog.clearLog" name="clearLog" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        
+        <!-- Class: LogEntry -->
+        <UML:Class xmi.id="class.LogEntry" name="LogEntry" visibility="public">
+          <UML:Classifier.feature>
+            <UML:Attribute xmi.id="attr.LogEntry.timestamp" name="timestamp" visibility="private" type="DateTime"/>
+            <UML:Attribute xmi.id="attr.LogEntry.description" name="description" visibility="private" type="String"/>
+            <UML:Operation xmi.id="op.LogEntry.getDetails" name="getDetails" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="String"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        
+        <!-- Class: Room -->
+        <UML:Class xmi.id="class.Room" name="Room" visibility="public">
+          <UML:Classifier.feature>
+            <UML:Attribute xmi.id="attr.Room.roomName" name="roomName" visibility="private" type="String"/>
+            <UML:Attribute xmi.id="attr.Room.roomType" name="roomType" visibility="private" type="String"/>
+            <UML:Attribute xmi.id="attr.Room.area" name="area" visibility="private" type="double"/>
+            <UML:Operation xmi.id="op.Room.assignDevice" name="assignDevice" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter name="device" type="SmartDevice"/>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="op.Room.removeDevice" name="removeDevice" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter name="device" type="SmartDevice"/>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        
+        <!-- Class: SmartDevice (Abstract) -->
+        <UML:Class xmi.id="class.SmartDevice" name="SmartDevice" visibility="public" isAbstract="true">
+          <UML:Classifier.feature>
+            <UML:Attribute xmi.id="attr.SmartDevice.deviceId" name="deviceId" visibility="protected" type="String"/>
+            <UML:Attribute xmi.id="attr.SmartDevice.deviceName" name="deviceName" visibility="protected" type="String"/>
+            <UML:Attribute xmi.id="attr.SmartDevice.status" name="status" visibility="protected" type="boolean"/>
+            <UML:Operation xmi.id="op.SmartDevice.turnOn" name="turnOn" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="op.SmartDevice.turnOff" name="turnOff" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="op.SmartDevice.performAction" name="performAction" visibility="public" isAbstract="true">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        
+        <!-- Class: Light -->
+        <UML:Class xmi.id="class.Light" name="Light" visibility="public">
+          <UML:Classifier.feature>
+            <UML:Attribute xmi.id="attr.Light.brightnessLevel" name="brightnessLevel" visibility="private" type="int"/>
+            <UML:Operation xmi.id="op.Light.setBrightness" name="setBrightness" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter name="level" type="int"/>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="op.Light.performAction" name="performAction" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        
+        <!-- Class: Thermostat -->
+        <UML:Class xmi.id="class.Thermostat" name="Thermostat" visibility="public">
+          <UML:Classifier.feature>
+            <UML:Attribute xmi.id="attr.Thermostat.targetTemperature" name="targetTemperature" visibility="private" type="double"/>
+            <UML:Operation xmi.id="op.Thermostat.setTemperature" name="setTemperature" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter name="temp" type="double"/>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="op.Thermostat.performAction" name="performAction" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        
+        <!-- Class: SmartLock -->
+        <UML:Class xmi.id="class.SmartLock" name="SmartLock" visibility="public">
+          <UML:Classifier.feature>
+            <UML:Attribute xmi.id="attr.SmartLock.pinCode" name="pinCode" visibility="private" type="String"/>
+            <UML:Operation xmi.id="op.SmartLock.unlock" name="unlock" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter name="pin" type="String"/>
+                <UML:Parameter kind="return" type="boolean"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="op.SmartLock.lock" name="lock" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="op.SmartLock.performAction" name="performAction" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        
+        <!-- Class: Sensor -->
+        <UML:Class xmi.id="class.Sensor" name="Sensor" visibility="public">
+          <UML:Classifier.feature>
+            <UML:Attribute xmi.id="attr.Sensor.sensorId" name="sensorId" visibility="private" type="String"/>
+            <UML:Attribute xmi.id="attr.Sensor.sensorType" name="sensorType" visibility="private" type="String"/>
+            <UML:Attribute xmi.id="attr.Sensor.reading" name="reading" visibility="private" type="double"/>
+            <UML:Operation xmi.id="op.Sensor.getReading" name="getReading" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="double"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="op.Sensor.calibrate" name="calibrate" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        
+        <!-- Class: AutomationRule -->
+        <UML:Class xmi.id="class.AutomationRule" name="AutomationRule" visibility="public">
+          <UML:Classifier.feature>
+            <UML:Attribute xmi.id="attr.AutomationRule.ruleId" name="ruleId" visibility="private" type="String"/>
+            <UML:Attribute xmi.id="attr.AutomationRule.ruleName" name="ruleName" visibility="private" type="String"/>
+            <UML:Attribute xmi.id="attr.AutomationRule.condition" name="condition" visibility="private" type="String"/>
+            <UML:Operation xmi.id="op.AutomationRule.execute" name="execute" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="void"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="op.AutomationRule.validate" name="validate" visibility="public">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter kind="return" type="boolean"/>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        
+        <!-- Relationships -->
+        <!-- User owns Houses (Aggregation) -->
+        <UML:Association xmi.id="assoc.User.House" name="owns">
+          <UML:Association.connection>
+            <UML:AssociationEnd xmi.id="assoc.User.House.user" type="class.User" multiplicity="1" aggregation="none"/>
+            <UML:AssociationEnd xmi.id="assoc.User.House.house" type="class.House" multiplicity="0..*" aggregation="shared"/>
+          </UML:Association.connection>
+        </UML:Association>
+        
+        <!-- House contains Rooms (Composition) -->
+        <UML:Association xmi.id="assoc.House.Room" name="contains">
+          <UML:Association.connection>
+            <UML:AssociationEnd xmi.id="assoc.House.Room.house" type="class.House" multiplicity="1" aggregation="none"/>
+            <UML:AssociationEnd xmi.id="assoc.House.Room.room" type="class.Room" multiplicity="1..*" aggregation="composite"/>
+          </UML:Association.connection>
+        </UML:Association>
+        
+        <!-- House manages CentralHub (Composition) -->
+        <UML:Association xmi.id="assoc.House.CentralHub" name="manages">
+          <UML:Association.connection>
+            <UML:AssociationEnd xmi.id="assoc.House.CentralHub.house" type="class.House" multiplicity="1" aggregation="none"/>
+            <UML:AssociationEnd xmi.id="assoc.House.CentralHub.hub" type="class.CentralHub" multiplicity="1" aggregation="composite"/>
+          </UML:Association.connection>
+        </UML:Association>
+        
+        <!-- CentralHub maintains ActivityLog (Composition) -->
+        <UML:Association xmi.id="assoc.CentralHub.ActivityLog" name="maintains">
+          <UML:Association.connection>
+            <UML:AssociationEnd xmi.id="assoc.CentralHub.ActivityLog.hub" type="class.CentralHub" multiplicity="1" aggregation="none"/>
+            <UML:AssociationEnd xmi.id="assoc.CentralHub.ActivityLog.log" type="class.ActivityLog" multiplicity="1" aggregation="composite"/>
+          </UML:Association.connection>
+        </UML:Association>
+        
+        <!-- ActivityLog contains LogEntries (Composition) -->
+        <UML:Association xmi.id="assoc.ActivityLog.LogEntry" name="contains">
+          <UML:Association.connection>
+            <UML:AssociationEnd xmi.id="assoc.ActivityLog.LogEntry.log" type="class.ActivityLog" multiplicity="1" aggregation="none"/>
+            <UML:AssociationEnd xmi.id="assoc.ActivityLog.LogEntry.entry" type="class.LogEntry" multiplicity="0..*" aggregation="composite"/>
+          </UML:Association.connection>
+        </UML:Association>
+        
+        <!-- Room contains SmartDevices (Aggregation) -->
+        <UML:Association xmi.id="assoc.Room.SmartDevice" name="contains">
+          <UML:Association.connection>
+            <UML:AssociationEnd xmi.id="assoc.Room.SmartDevice.room" type="class.Room" multiplicity="0..1" aggregation="none"/>
+            <UML:AssociationEnd xmi.id="assoc.Room.SmartDevice.device" type="class.SmartDevice" multiplicity="0..*" aggregation="shared"/>
+          </UML:Association.connection>
+        </UML:Association>
+        
+        <!-- Inheritance: SmartDevice <- Light -->
+        <UML:Generalization xmi.id="gen.SmartDevice.Light" child="class.Light" parent="class.SmartDevice"/>
+        
+        <!-- Inheritance: SmartDevice <- Thermostat -->
+        <UML:Generalization xmi.id="gen.SmartDevice.Thermostat" child="class.Thermostat" parent="class.SmartDevice"/>
+        
+        <!-- Inheritance: SmartDevice <- SmartLock -->
+        <UML:Generalization xmi.id="gen.SmartDevice.SmartLock" child="class.SmartLock" parent="class.SmartDevice"/>
+        
+        <!-- Interface Realization: IConnectable <- SmartDevice -->
+        <UML:Abstraction xmi.id="real.IConnectable.SmartDevice" client="class.SmartDevice" supplier="interface.IConnectable" stereotype="realize"/>
+        
+        <!-- Interface Realization: IConnectable <- Sensor -->
+        <UML:Abstraction xmi.id="real.IConnectable.Sensor" client="class.Sensor" supplier="interface.IConnectable" stereotype="realize"/>
+        
+        <!-- Sensor triggers AutomationRule -->
+        <UML:Association xmi.id="assoc.Sensor.AutomationRule" name="triggers">
+          <UML:Association.connection>
+            <UML:AssociationEnd xmi.id="assoc.Sensor.AutomationRule.sensor" type="class.Sensor" multiplicity="1" aggregation="none"/>
+            <UML:AssociationEnd xmi.id="assoc.Sensor.AutomationRule.rule" type="class.AutomationRule" multiplicity="1" aggregation="none"/>
+          </UML:Association.connection>
+        </UML:Association>
+        
+        <!-- AutomationRule performs action on SmartDevice -->
+        <UML:Association xmi.id="assoc.AutomationRule.SmartDevice" name="performs action on">
+          <UML:Association.connection>
+            <UML:AssociationEnd xmi.id="assoc.AutomationRule.SmartDevice.rule" type="class.AutomationRule" multiplicity="1" aggregation="none"/>
+            <UML:AssociationEnd xmi.id="assoc.AutomationRule.SmartDevice.device" type="class.SmartDevice" multiplicity="1" aggregation="none"/>
+          </UML:Association.connection>
+        </UML:Association>
+        
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+  </XMI.content>
+</XMI>
