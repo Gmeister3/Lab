@@ -17,7 +17,7 @@ This document describes the generated output files for the SmartHomePro UML Clas
 - `SmartHomePro.pgml` - Diagram layout information (PGML format)
 
 #### How to Open:
-1. Download and install ArgoUML 0.34 from: https://github.com/argouml-tigris-org/argouml/releases/tag/VERSION_0_34
+1. Download and install ArgoUML 0.34 from: https://github.com/argouml-tigris-org/argouml/releases (select VERSION_0_34)
 2. Launch ArgoUML
 3. Go to File → Open Project
 4. Select `SmartHomePro.zargo`
@@ -81,10 +81,14 @@ Simply open with any PDF viewer:
 #### How it was Generated:
 This file was created using ArgoUML 0.34's command-line export functionality:
 ```bash
-java -jar argouml.jar -batch \
+# For headless execution (Linux)
+xvfb-run -a java -jar argouml.jar -batch \
   -command "org.argouml.uml.ui.ActionOpenProject=SmartHomePro.zargo" \
   -command "org.argouml.uml.ui.ActionSaveGraphics=SmartHomePro_from_ArgoUML034.png"
 ```
+
+**Note:** The `-batch` flag enables batch mode, and `-command` executes specific ArgoUML actions.
+The `xvfb-run` wrapper is required for headless/server environments without a display.
 
 #### Features:
 - Demonstrates ArgoUML 0.34 compatibility
