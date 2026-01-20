@@ -1,0 +1,133 @@
+@startuml SmartHomePro
+
+' ==================== Interfaces ====================
+interface IConnectable {
+  + connectToWifi(): void
+  + getSignalStrength(): int
+}
+
+' ==================== User and House ====================
+class User {
+  - username: String
+  - email: String
+  + login(): void
+  + logout(): void
+}
+
+class House {
+  - address: String
+  - propertySize: double
+  + addRoom(room: Room): void
+  + removeRoom(room: Room): void
+}
+
+' ==================== Central Hub and Logging ====================
+class CentralHub {
+  - hubId: String
+  - systemVersion: String
+  + manageOperations(): void
+  + processAutomation(): void
+}
+
+class ActivityLog {
+  - logId: String
+  + addEntry(entry: LogEntry): void
+  + clearLog(): void
+}
+
+class LogEntry {
+  - timestamp: DateTime
+  - description: String
+  + getDetails(): String
+}
+
+' ==================== Room ====================
+class Room {
+  - roomName: String
+  - roomType: String
+  - area: double
+  + assignDevice(device: SmartDevice): void
+  + removeDevice(device: SmartDevice): void
+}
+
+' ==================== Smart Devices ====================
+abstract class SmartDevice {
+  # deviceId: String
+  # deviceName: String
+  # status: boolean
+  + turnOn(): void
+  + turnOff(): void
+  + {abstract} performAction(): void
+}
+
+class Light {
+  - brightnessLevel: int
+  + setBrightness(level: int): void
+  + performAction(): void
+}
+
+class Thermostat {
+  - targetTemperature: double
+  + setTemperature(temp: double): void
+  + performAction(): void
+}
+
+class SmartLock {
+  - pinCode: String
+  + unlock(pin: String): boolean
+  + lock(): void
+  + performAction(): void
+}
+
+' ==================== Sensors ====================
+class Sensor {
+  - sensorId: String
+  - sensorType: String
+  - reading: double
+  + getReading(): double
+  + calibrate(): void
+}
+
+' ==================== Automation ====================
+class AutomationRule {
+  - ruleId: String
+  - ruleName: String
+  - condition: String
+  + execute(): void
+  + validate(): boolean
+}
+
+' ==================== Relationships ====================
+
+' User owns multiple Houses (Aggregation - Houses can exist without User)
+User "1" o-- "0..*" House : owns >
+
+' House contains Rooms (Composition - Rooms are destroyed with House)
+House "1" *-- "1..*" Room : contains >
+
+' House contains exactly one CentralHub (Composition)
+House "1" *-- "1" CentralHub : manages >
+
+' CentralHub contains ActivityLog (Composition)
+CentralHub "1" *-- "1" ActivityLog : maintains >
+
+' ActivityLog contains LogEntries (Composition)
+ActivityLog "1" *-- "0..*" LogEntry : contains >
+
+' Room contains SmartDevices (Aggregation - Devices survive Room deletion)
+Room "0..1" o-- "0..*" SmartDevice : contains >
+
+' SmartDevice inheritance
+SmartDevice <|-- Light
+SmartDevice <|-- Thermostat
+SmartDevice <|-- SmartLock
+
+' Interface realization
+IConnectable <|.. SmartDevice : realizes
+IConnectable <|.. Sensor : realizes
+
+' AutomationRule relationships (1:1:1)
+Sensor "1" -- "1" AutomationRule : triggers >
+AutomationRule "1" -- "1" SmartDevice : performs action on >
+
+@enduml
