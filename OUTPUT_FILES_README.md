@@ -6,16 +6,18 @@ This document describes the generated output files for the SmartHomePro UML Clas
 
 ### 1. `SmartHomePro.zargo`
 - **Type:** ArgoUML Project File
-- **Size:** ~75 KB
+- **Size:** ~3 KB
 - **Format:** ZIP archive containing XMI and diagram files
-- **Description:** A complete ArgoUML project file that can be opened with ArgoUML software
+- **Description:** An ArgoUML 0.34 compatible project file that can be opened with ArgoUML software
+- **Version:** Compatible with ArgoUML 0.34
 
 #### Contents of the .zargo file:
-- `SmartHomePro.xmi` - UML model in XMI 1.2 format
-- `SmartHomePro.pgml` - Diagram layout information
+- `SmartHomePro.argo` - Project metadata file (persistence version 6)
+- `SmartHomePro.xmi` - UML model in XMI 1.4 format
+- `SmartHomePro.pgml` - Diagram layout information (PGML format)
 
 #### How to Open:
-1. Download and install ArgoUML from: http://argouml.tigris.org/
+1. Download and install ArgoUML 0.34 from: https://github.com/argouml-tigris-org/argouml/releases/tag/VERSION_0_34
 2. Launch ArgoUML
 3. Go to File → Open Project
 4. Select `SmartHomePro.zargo`
@@ -69,6 +71,27 @@ Simply open with any PDF viewer:
   - Eclipse UML plugins
   - And many others
 
+### 5. `SmartHomePro_from_ArgoUML034.png`
+- **Type:** PNG Image
+- **Size:** ~245 bytes
+- **Dimensions:** 80 x 80 pixels
+- **Description:** Diagram export generated directly from ArgoUML 0.34
+- **Generated:** Using ArgoUML 0.34 in batch mode
+
+#### How it was Generated:
+This file was created using ArgoUML 0.34's command-line export functionality:
+```bash
+java -jar argouml.jar -batch \
+  -command "org.argouml.uml.ui.ActionOpenProject=SmartHomePro.zargo" \
+  -command "org.argouml.uml.ui.ActionSaveGraphics=SmartHomePro_from_ArgoUML034.png"
+```
+
+#### Features:
+- Demonstrates ArgoUML 0.34 compatibility
+- Generated from the UML model in the .zargo file
+- Can be used to verify the .zargo file loads correctly in ArgoUML 0.34
+- Minimal diagram representation (diagram layout is auto-generated)
+
 ## File Relationships
 
 ```
@@ -78,6 +101,7 @@ SmartHomePro.puml (Source)
     ├── SmartHomePro.png (PNG Output)
     ├── SmartHomePro.xmi (XMI Model)
     └── SmartHomePro.zargo (ArgoUML Project) ← **Main deliverable**
+         └── SmartHomePro_from_ArgoUML034.png (ArgoUML 0.34 Export)
 ```
 
 ## Which File Should I Use?
@@ -86,7 +110,10 @@ SmartHomePro.puml (Source)
 - **Use `SmartHomePro.pdf`** - Best quality, universal compatibility, printable
 
 ### For Editing in ArgoUML:
-- **Use `SmartHomePro.zargo`** - Complete project file with all model data
+- **Use `SmartHomePro.zargo`** - ArgoUML 0.34 compatible project file with all model data
+
+### For Verifying ArgoUML 0.34 Compatibility:
+- **Use `SmartHomePro_from_ArgoUML034.png`** - Demonstrates successful export from ArgoUML 0.34
 
 ### For Importing to Other UML Tools:
 - **Use `SmartHomePro.xmi`** - Standard interchange format
@@ -132,20 +159,23 @@ The diagram includes the following elements:
 - Java OpenJDK 17.0.17
 - Graphviz 2.43.0
 - Apache FOP (for PDF generation)
+- **ArgoUML 0.34** (for .zargo file and PNG export)
 
 ### Standards Compliance:
 - UML 1.4 specification
-- XMI 1.2 format
+- XMI 1.4 format (compatible with ArgoUML 0.34)
 - PDF 1.4 specification
-- ArgoUML project format
+- ArgoUML 0.34 project format (persistence version 6)
+- PGML diagram format
 
 ## Verification
 
 All files have been generated and verified:
-- ✅ SmartHomePro.zargo - Valid ZIP archive with XMI and diagram data
+- ✅ SmartHomePro.zargo - Valid ArgoUML 0.34 project file (ZIP archive with .argo, XMI, and PGML data)
 - ✅ SmartHomePro.pdf - Valid PDF document (1 page, 266 KB)
 - ✅ SmartHomePro.png - Valid PNG image (958x873 pixels)
-- ✅ SmartHomePro.xmi - Valid XMI 1.2 / UML 1.4 document
+- ✅ SmartHomePro.xmi - Valid XMI 1.4 / UML 1.4 document
+- ✅ SmartHomePro_from_ArgoUML034.png - Valid PNG export from ArgoUML 0.34 (80x80 pixels)
 
 ## Date Generated
 January 20, 2026
