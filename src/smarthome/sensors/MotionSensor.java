@@ -12,7 +12,7 @@ public class MotionSensor extends Sensor {
     
     // Methods
     public float readValue() { return 0.0f; }
-    public boolean isOpen() { return false; }
+    public boolean isMotionDetected() { return false; }
     public void setSensitivity(int level) {}
     
     // Override abstract methods from Sensor

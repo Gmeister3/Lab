@@ -8,7 +8,7 @@ public class SmartCamera extends SmartDevice {
     // Attributes
     private String resolution;
     private boolean isRecording;
-    private boolean storageLocation;
+    private String storageLocation;
     
     // Methods
     public void startRecording() {}

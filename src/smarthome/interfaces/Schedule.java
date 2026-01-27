@@ -7,11 +7,14 @@ import java.util.Date;
  * Interface name in italic text
  */
 public interface Schedule {
-    // Attributes (as interface, these would typically be constants or handled via methods)
-    // -scheduleId: String
-    // -startTime: DateTime
-    // -endTime: DateTime
-    // -recurrence: Recurrence
+    // Attributes represented as getter/setter methods
+    String getScheduleId();
+    Date getStartTime();
+    void setStartTime(Date startTime);
+    Date getEndTime();
+    void setEndTime(Date endTime);
+    String getRecurrence();
+    void setRecurrence(String recurrence);
     
     // Methods
     boolean isTimeToExecute();

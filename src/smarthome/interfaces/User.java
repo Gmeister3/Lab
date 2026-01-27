@@ -5,12 +5,12 @@ package smarthome.interfaces;
  * Purple Circle with I inside - Interface name in italic text
  */
 public interface User {
-    // Attributes
-    // -userId: String
-    // -username: String
-    // -email: String
-    // -phoneNumber: String
-    // -role: UserRole
+    // Attributes represented as getter methods
+    String getUserId();
+    String getUsername();
+    String getEmail();
+    String getPhoneNumber();
+    String getRole();
     
     // Methods
     boolean authenticate();

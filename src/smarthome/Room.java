@@ -11,16 +11,13 @@ public class Room {
     // Attributes
     private String roomId;
     private String name;
-    private String trigger;
-    private List<String> conditions;
+    private String type;
+    private float area;
     
     // Methods
     public void addDevice(SmartDevice device) {}
     public void removeDevice(SmartDevice device) {}
     public List<SmartDevice> getDevices() { return null; }
-    public boolean isEnabled() { return false; }
-    public void execute() {}
-    public boolean evaluate() { return false; }
-    public void enable() {}
-    public void disable() {}
+    public void assignDevice(SmartDevice device) {}
+    public SmartDevice getDevice(String deviceId) { return null; }
 }

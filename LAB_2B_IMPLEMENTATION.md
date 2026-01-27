@@ -55,8 +55,7 @@ src/smarthome/
 │   ├── IControllable.java      (Interface - Purple I)
 │   ├── IDeployable.java        (Interface - Purple I)
 │   ├── IMonitorable.java       (Interface - Purple I)
-│   ├── Schedule.java           (Interface - Purple I)
-│   └── DeviceFactory.java      (Interface - Purple I)
+│   └── Schedule.java           (Interface - Purple I)
 ├── services/
 │   └── NotificationService.java (Class - Green C)
 ├── utils/
@@ -174,5 +173,5 @@ As per lab requirements, all methods have signatures but **do not include implem
 
 ## Author
 
-COSC 3P91 - Advanced Object-Oriented Programming - Laboratory 3
+COSC 3P91 - Advanced Object-Oriented Programming - Laboratory 2b
 Winter Term - SmartHome Pro UML-to-Code Implementation

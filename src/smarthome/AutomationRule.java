@@ -12,8 +12,9 @@ public class AutomationRule {
     private java.util.List<String> conditions;
     
     // Methods
-    public void setBrightnessLevel(int level) {}
-    public String getRgb() { return null; }
-    public void setRgb(String rgb) {}
-    public void operate() {}
+    public boolean isEnabled() { return false; }
+    public void execute() {}
+    public boolean evaluate() { return false; }
+    public void enable() {}
+    public void disable() {}
 }
