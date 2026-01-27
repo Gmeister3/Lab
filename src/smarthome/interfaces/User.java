@@ -29,5 +29,5 @@ public class User {
     // Methods
     public boolean authenticate() { return false; }
     public void changePassword() {}
-    public java.util.List<String> getPermissions() { return null; }
+    public java.util.List<String> getPermissions() { return new java.util.ArrayList<>(); }
 }
