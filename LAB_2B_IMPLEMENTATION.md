@@ -23,12 +23,12 @@ According to the new requirements, the following visual notation is used in the 
 3. **Static Classes**
    - Visual: Green Circle with **C** inside (on top bar)
    - Text: `<<static>>` precedes the Class name in **regular text**
-   - Note: No static classes in current diagram, but notation is available if needed
+   - Examples: `DeviceFactory`
 
 4. **Interfaces**
    - Visual: Purple Circle with **I** inside (on top bar)
    - Text: Interface name in *italic text*
-   - Examples: `User`, `INetworkEnabled`, `IControllable`, `IDeployable`, `IMonitorable`, `Schedule`, `DeviceFactory`
+   - Examples: `User`, `INetworkEnabled`, `IControllable`, `IDeployable`, `IMonitorable`, `Schedule`
 
 ## Project Structure
 
@@ -61,7 +61,7 @@ src/smarthome/
 ├── utils/
 │   └── Logger.java             (Class - Green C)
 └── factories/
-    └── DeviceFactory.java      (Interface - Purple I)
+    └── DeviceFactory.java      (Static Class - Green C with <<static>>)
 ```
 
 ## Implementation Details
